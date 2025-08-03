@@ -2,6 +2,10 @@
 // VueUse
 import { useScroll } from '@vueuse/core'
 const { y } = useScroll(window)
+
+// 使用pinia中的数据
+import { useCategoryStore } from '@/stores/category';
+const categoryStore = useCategoryStore()
 </script>
 
 <template>
@@ -11,15 +15,9 @@ const { y } = useScroll(window)
       <!-- 导航区域 -->
       <ul class="app-header-nav">
         <li class="home"><RouterLink to="/">首页</RouterLink></li>
-        <li class="home"><RouterLink to="/">居家</RouterLink></li>
-        <li class="home"><RouterLink to="/">美食</RouterLink></li>
-        <li class="home"><RouterLink to="/">服饰</RouterLink></li>
-        <li class="home"><RouterLink to="/">母婴</RouterLink></li>
-        <li class="home"><RouterLink to="/">个护</RouterLink></li>
-        <li class="home"><RouterLink to="/">严选</RouterLink></li>
-        <li class="home"><RouterLink to="/">数码</RouterLink></li>
-        <li class="home"><RouterLink to="/">运动</RouterLink></li>
-        <li class="home"><RouterLink to="/">杂项</RouterLink></li>
+        <li class="home" v-for="item in categoryStore.categoryList" :key="item.id">
+          <RouterLink to="/">{{ item.name }}</RouterLink>
+        </li>
       </ul>
 
       <div class="right">
@@ -53,12 +51,18 @@ const { y } = useScroll(window)
     opacity: 1;
   }
 
-    .app-header-nav {
-      display: flex;
-      li{
-        margin: 0 18px;
-        font-size: 18px;
+  .app-header-nav {
+    width: 820px;
+    display: flex;
+    padding-left: 40px;
+    position: relative;
+    z-index: 998;
+      li {
+        margin-right: 40px;
+        width: 38px;
+        text-align: center;
         font-weight: bolder;
+        font-size: 16px;
       }
     }
 
@@ -80,6 +84,7 @@ const { y } = useScroll(window)
     text-align: center;
     padding-left: 40px;
     border-left: 2px solid $xtxColor;
+    font-weight: bolder;
 
     a {
       width: 38px;
