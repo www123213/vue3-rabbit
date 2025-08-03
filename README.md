@@ -36,3 +36,9 @@ npm run lint
 ### VueUse
 ```
 通过VueUse里的useScroll获取浏览器y轴滚动条的数值来设计一个吸顶导航栏
+```
+
+### Pinia
+```
+通过Pinia优化顶部导航复写
+```
