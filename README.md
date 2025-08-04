@@ -40,5 +40,5 @@ npm run lint
 
 ### Pinia
 ```
-通过Pinia优化顶部导航复写
+通过Pinia优化顶部导航、主页分类的复写
 ```

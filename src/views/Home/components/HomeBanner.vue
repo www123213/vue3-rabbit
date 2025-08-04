@@ -13,7 +13,7 @@ onMounted(() => getBanner())
 </script>
 
 <template>
-  <div class="home-banner">
+  <div class="home-banner"> 
     <el-carousel height="500px">
       <el-carousel-item v-for="item in bannerList" :key="item.id">
         <img :src="item.imgUrl" alt="">
