@@ -35,6 +35,13 @@ const categoryStore = useCategoryStore()
 
 
 <style scoped lang='scss'>
+// 添加全局设置
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 .home-category {
   width: 250px;
   height: 500px;
@@ -43,10 +50,17 @@ const categoryStore = useCategoryStore()
   z-index: 99;
 
   .menu {
+    // 移除默认的ul内边距
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
     li {
       padding-left: 40px;
       height: 55px;
       line-height: 55px;
+      // 确保没有默认外边距
+      margin: 0;
 
       &:hover {
         background: $xtxColor;
@@ -85,6 +99,8 @@ const categoryStore = useCategoryStore()
         ul {
           display: flex;
           flex-wrap: wrap;
+          // 移除ul默认内边距
+          padding: 0;
 
           li {
             width: 310px;
@@ -94,6 +110,8 @@ const categoryStore = useCategoryStore()
             border: 1px solid #eee;
             border-radius: 4px;
             background: #fff;
+            // 重置li的padding，避免继承父元素的padding-left
+            padding-left: 0;
 
             &:nth-child(3n) {
               margin-right: 0;
@@ -105,9 +123,11 @@ const categoryStore = useCategoryStore()
               height: 100%;
               align-items: center;
               padding: 10px;
+              transition: all .5s;
 
               &:hover {
-                background: #e3f9f4;
+                background: #f9e3e3;
+                box-shadow: 0 3px 8px rgb(0 0 0 / 20%);
               }
 
               img {
