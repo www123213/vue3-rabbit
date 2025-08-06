@@ -19,7 +19,7 @@ onMounted(() => getHotList())
         <ul class="goods-list">
             <li v-for="item in hotList" :key="hotList.id">
                 <RouterLink to="/">
-                    <img :src="item.picture" alt="" />
+                    <img v-img-lazy="item.picture" src="" alt="" />
                     <p class="name">{{ item.alt }}</p>
                     <p class="price">&yen;{{ item.id }}</p>
                 </RouterLink>
@@ -38,7 +38,7 @@ onMounted(() => getHotList())
         width: 306px;
         height: 406px;
 
-        background: #f0f9f4;
+        background: #f1f1f1;
         transition: all .5s; // 过度动画0.5秒平滑过渡
 
         &:hover{
