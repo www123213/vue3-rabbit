@@ -36,6 +36,7 @@ npm run lint
 ### VueUse
 ```
 通过VueUse里的useScroll获取浏览器y轴滚动条的数值来设计一个吸顶导航栏
+检测浏览器视口，进行懒加载图片处理
 ```
 
 ### Pinia
