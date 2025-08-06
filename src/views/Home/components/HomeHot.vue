@@ -1,13 +1,13 @@
 <script setup>
 import { onMounted,ref } from 'vue';
 import HomePanel from './HomePanel.vue';
-import { findHotAPI } from '@/apis/home';
+import { getHotAPI } from '@/apis/home';
 
 // 获取数据
 const hotList = ref([])
 
 const getHotList = async () => {
-    const res = await findHotAPI()
+    const res = await getHotAPI()
     hotList.value = res.result
 }
 
@@ -38,7 +38,7 @@ onMounted(() => getHotList())
         width: 306px;
         height: 406px;
 
-        background: #f1f1f1;
+        background: #ffffff;
         transition: all .5s; // 过度动画0.5秒平滑过渡
 
         &:hover{

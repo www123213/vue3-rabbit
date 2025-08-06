@@ -1,13 +1,13 @@
 <script setup>
 import { onMounted,ref } from 'vue';
 import HomePanel from './HomePanel.vue';
-import { findNewAPI } from '@/apis/home';
+import { getNewAPI } from '@/apis/home';
 
 // 获取数据
 const newList = ref([])
 
 const getNewList = async () => {
-    const res = await findNewAPI()
+    const res = await getNewAPI()
     newList.value = res.result
 }
 
