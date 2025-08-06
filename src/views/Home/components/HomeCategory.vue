@@ -126,7 +126,7 @@ const categoryStore = useCategoryStore()
               transition: all .5s;
 
               &:hover {
-                background: #f9e3e3;
+                background: #27ba9b;
                 box-shadow: 0 3px 8px rgb(0 0 0 / 20%);
               }
 
