@@ -1,3 +1,4 @@
+<!-- 封装Product（goods） -->
 <script setup>
 defineProps({
   goods: {
