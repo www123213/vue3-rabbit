@@ -1,30 +1,13 @@
 <script setup>
-import { getCategoryAPI } from '@/apis/category';
-import { ref, watchEffect,onMounted } from 'vue';
-import { useRoute } from 'vue-router';
-import { getBannerAPI } from '@/apis/home';
 import GoodsItem from '../Home/components/GoodsItem.vue'
+import { useBanner } from './composables/useBanner'
+import { useCategory } from './composables/useCategory'
 
-// 获取数据
-const categoryData = ref({})
-const route = useRoute()
-const getCategory = async() => {
-    const res = await getCategoryAPI(route.params.id)
-    categoryData.value = res.result
-}
-// 自动追踪内部依赖的响应式数据
-watchEffect(() => getCategory())
+// 获取分类数据
+const { categoryData } = useCategory()
 
-// 获取banner
-const bannerList = ref([])
-const getBanner = async () => {
-    const res = await getBannerAPI({
-        distributionSite: '2'
-    })
-    bannerList.value = res.result
-}
-
-onMounted(() => getBanner())
+// 获取banner数据
+const { bannerList } = useBanner()
 </script>
 
 <template>
