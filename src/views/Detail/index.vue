@@ -54,7 +54,7 @@ onMounted(() => getGoods())
                 </li>
                 <li>
                   <p>品牌信息</p>
-                  <p>{{ goods.brand.name }}</p>
+                  <p>{{ goods.brand?.name || '暂无信息'}}</p>
                   <p><i class="iconfont icon-dynamic-filling"></i>品牌主页</p>
                 </li>
               </ul>
@@ -111,7 +111,7 @@ onMounted(() => getGoods())
                     </li>
                   </ul>
                   <!-- 图片 -->
-                  <img v-for="img in goods.details.pictures" :src="img" :key="img" alt="">
+                  <img v-for="img in goods.details.pictures" v-img-lazy="img" src="" :key="img" alt="">
                 </div>
               </div>
             </div>
