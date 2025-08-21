@@ -1,11 +1,9 @@
 import httpInstance from '@/utils/http'
 
-export function getCategoryAPI(id){
-    return httpInstance({
-        url: '/category',
-        params: { id }
-    })
-}
+export const getCategoryAPI = (id) => httpInstance({
+    url: '/category',
+    params: { id }
+})
 
 /**
  * @description: 获取二级分类列表数据
@@ -13,12 +11,10 @@ export function getCategoryAPI(id){
  * @return {*}
  */
 
-export const getCategoryFilterAPI = (id) => {
-    return httpInstance({
-        url: '/category/sub/filter',
-        params: { id }
-    })
-}
+export const getCategoryFilterAPI = (id) => httpInstance({
+    url: '/category/sub/filter',
+    params: { id }
+})
 
 /**
  * @description: 获取导航数据
@@ -30,10 +26,8 @@ export const getCategoryFilterAPI = (id) => {
     }
  * @return {*}
  */
-export const getSubCategoryAPI = (data) => {
-    return httpInstance({
-        url: '/category/goods/temporary',
-        method: 'POST',
-        data
-    })
-}
+export const getSubCategoryAPI = (data) => httpInstance({
+    url: '/category/goods/temporary',
+    method: 'POST',
+    data
+})
